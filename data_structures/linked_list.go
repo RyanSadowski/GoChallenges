@@ -52,6 +52,7 @@ func Push(list *LinkedList, node *ListNode) *LinkedList {
 	list.Head = node
 	return list
 }
+
 func IsEmpty(list *LinkedList) bool {
 	return list.Head == nil || list.Tail == nil
 }

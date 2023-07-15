@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func CreateNode(t *testing.T) {
+func TestCreateNode(t *testing.T) {
 	var node = data_structures.CreateNode(5)
 
 	if node.NextNode != nil {
@@ -55,6 +55,60 @@ func TestEnqueue(t *testing.T) {
 		t.Errorf("Length after Enqueue is wrong, Found %d, expected %d.", length, expected)
 	}
 }
+
+func TestDequeue(t *testing.T) {
+	// Arrange
+	var node = data_structures.CreateNode(1)
+	var node2 = data_structures.CreateNode(2)
+	var node3 = data_structures.CreateNode(3)
+	var node4 = data_structures.CreateNode(4)
+	var node5 = data_structures.CreateNode(5)
+	var list = data_structures.CreateList(node)
+
+	// Act
+	data_structures.Enqueue(list, node2)
+	if data_structures.GetLength(list) != 2 {
+		// error
+	}
+
+	data_structures.Enqueue(list, node3)
+	data_structures.Enqueue(list, node4)
+	data_structures.Enqueue(list, node5)
+
+	if data_structures.GetLength(list) != 5 {
+		// error
+	}
+
+	var firstD = data_structures.Dequeue(list)
+	var secondD = data_structures.Dequeue(list)
+	var thirdD = data_structures.Dequeue(list)
+	var fourthD = data_structures.Dequeue(list)
+	var fifthD = data_structures.Dequeue(list)
+
+	if firstD != node.Value {
+		t.Errorf("first DeQeue is bad")
+	}
+	if secondD != node2.Value {
+		t.Errorf("first DeQeue is bad")
+	}
+
+	if thirdD != node3.Value {
+		t.Errorf("first DeQeue is bad")
+	}
+	if fourthD != node4.Value {
+		t.Errorf("first DeQeue is bad")
+	}
+
+	if fifthD != node5.Value {
+		t.Errorf("first DeQeue is bad")
+	}
+
+	if data_structures.GetLength(list) != 0 {
+		t.Errorf("list didn't shrink during dqueue")
+	}
+
+}
+
 func TestLength(t *testing.T) {
 
 	// Arrange
