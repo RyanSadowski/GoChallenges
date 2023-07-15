@@ -15,6 +15,12 @@ type LinkedList struct {
 	Tail *ListNode
 }
 
+func CreateNode(val int) *ListNode {
+	var node = new(ListNode)
+	node.Value = val
+	return node
+}
+
 func CreateList(node *ListNode) *LinkedList {
 	var list = new(LinkedList)
 	list.Head = node
@@ -22,8 +28,8 @@ func CreateList(node *ListNode) *LinkedList {
 	return list
 }
 
-func Enqueue(list *LinkedList, node ListNode) {
-	list.Tail.NextNode = &node
+func Enqueue(list *LinkedList, node *ListNode) {
+	list.Tail.NextNode = node
 }
 
 func Dequeue(list *LinkedList) int {
@@ -38,10 +44,10 @@ func Pop(list *LinkedList) int {
 	return tmp
 }
 
-func Push(list *LinkedList, node ListNode) *LinkedList {
-	list.Head.PreviousNode = &node
+func Push(list *LinkedList, node *ListNode) *LinkedList {
+	list.Head.PreviousNode = node
 	node.NextNode = list.Head.PreviousNode
-	list.Head = &node
+	list.Head = node
 	return list
 }
 func IsEmpty(list *LinkedList) bool {

@@ -9,6 +9,9 @@ func TestCreateList(t *testing.T) {
 	var node = new(data_structures.ListNode)
 
 	var list = data_structures.CreateList(node)
+	if list.Tail != node {
+		t.Errorf("create node failed to set tail")
+	}
 
 	if list.Head != node {
 		t.Errorf("create node failed to set head")
@@ -17,10 +20,21 @@ func TestCreateList(t *testing.T) {
 
 func TestEnqueue(t *testing.T) {
 	// Arrange
+	var node = new(data_structures.ListNode)
+	var list = data_structures.CreateList(node)
+
+	var newNode = data_structures.CreateNode(7)
 
 	// Act
+	data_structures.Enqueue(list, newNode)
+	var length = data_structures.GetLength(list)
+	var expected = 3
 
 	// Assert
+
+	if length != expected {
+		t.Errorf("Length after Enqueue is wrong, Found %d, expected %d.", length, expected)
+	}
 }
 func TestLength(t *testing.T) {
 
