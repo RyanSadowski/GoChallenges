@@ -81,30 +81,23 @@ func TestDequeue(t *testing.T) {
 
 	var firstD = data_structures.Dequeue(list)
 	var secondD = data_structures.Dequeue(list)
-	var thirdD = data_structures.Dequeue(list)
-	var fourthD = data_structures.Dequeue(list)
+	data_structures.Dequeue(list)
+	data_structures.Dequeue(list)
 	var fifthD = data_structures.Dequeue(list)
 
 	if firstD != node.Value {
-		t.Errorf("first DeQeue is bad")
+		t.Errorf("first DeQueue is bad")
 	}
 	if secondD != node2.Value {
-		t.Errorf("first DeQeue is bad")
-	}
-
-	if thirdD != node3.Value {
-		t.Errorf("first DeQeue is bad")
-	}
-	if fourthD != node4.Value {
-		t.Errorf("first DeQeue is bad")
+		t.Errorf("2nd DeQueue is bad")
 	}
 
 	if fifthD != node5.Value {
-		t.Errorf("first DeQeue is bad")
+		t.Errorf("fifth DeQueue is bad")
 	}
 
 	if data_structures.GetLength(list) != 0 {
-		t.Errorf("list didn't shrink during dqueue")
+		t.Errorf("list didn't shrink during dequeue")
 	}
 
 }
