@@ -5,6 +5,23 @@ import (
 	"testing"
 )
 
+func CreateNode(t *testing.T) {
+	var node = data_structures.CreateNode(5)
+
+	if node.NextNode != nil {
+		t.Errorf("new node should have null NextNode property")
+	}
+
+	if node.PreviousNode != nil {
+		t.Errorf("new node should have null PreviousNode property")
+	}
+
+	if node.Value != 5 {
+		t.Errorf("why tho")
+	}
+
+}
+
 func TestCreateList(t *testing.T) {
 	var node = new(data_structures.ListNode)
 
@@ -21,11 +38,13 @@ func TestCreateList(t *testing.T) {
 func TestEnqueue(t *testing.T) {
 	// Arrange
 	var node = new(data_structures.ListNode)
+	node.Value = 1
 	var list = data_structures.CreateList(node)
-
+	var aNode = data_structures.CreateNode(2)
 	var newNode = data_structures.CreateNode(7)
 
 	// Act
+	data_structures.Enqueue(list, aNode)
 	data_structures.Enqueue(list, newNode)
 	var length = data_structures.GetLength(list)
 	var expected = 3

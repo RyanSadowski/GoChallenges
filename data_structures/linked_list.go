@@ -30,6 +30,8 @@ func CreateList(node *ListNode) *LinkedList {
 
 func Enqueue(list *LinkedList, node *ListNode) {
 	list.Tail.NextNode = node
+	node.PreviousNode = list.Tail
+	list.Tail = node
 }
 
 func Dequeue(list *LinkedList) int {
