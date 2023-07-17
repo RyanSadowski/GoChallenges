@@ -33,17 +33,15 @@ func sumOfSquaredDigits(number int) int {
 }
 
 func isHappy(num int) bool {
-
 	var fast = num
 	var slow = num
 	for fast != 1 {
 		slow = sumOfSquaredDigits(slow)
 		fast = sumOfSquaredDigits(fast)
 		fast = sumOfSquaredDigits(fast)
-		if fast == slow {
+		if fast == slow && fast != 1 {
 			return false
 		}
 	}
-
 	return true
 }
