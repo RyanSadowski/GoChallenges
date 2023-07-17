@@ -1,7 +1,6 @@
 package main
 
-func detectCycle(head *EduLinkedListNode) bool {
-	// Your code will replce this placeholder return statement
+func detectCycle(head *Node) bool {
 	var slow = head
 	var fast = head.next
 
@@ -22,7 +21,7 @@ func detectCycle(head *EduLinkedListNode) bool {
 	return true
 }
 
-type EduLinkedListNode struct {
+type Node struct {
 	data int
-	next *EduLinkedListNode
+	next *Node
 }
